@@ -1,4 +1,4 @@
-import Layout from '@/hocs/layouts/layouts'
+import Layout from '@/hocs/layouts/Layouts'
 import Nav from "@/components/navigations/Nav"
 import Footer from "@/components/navigations/Footer"
 import Hero from '@/components/navigations/Hero'
