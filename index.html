@@ -4,7 +4,21 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <title>shop-react</title>
+    <script>
+      (function(){
+        try {
+          var storageKey = 'vite-ui-theme';
+          var theme = localStorage.getItem(storageKey);
+          var mql = window.matchMedia('(prefers-color-scheme: dark)');
+          var system = mql.matches ? 'dark' : 'light';
+          var resolved = theme === 'system' || !theme ? system : theme;
+          var root = document.documentElement;
+          root.classList.remove('light','dark');
+          root.classList.add(resolved);
+        } catch (e) { /* noop */ }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
