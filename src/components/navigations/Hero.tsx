@@ -1,6 +1,24 @@
 import {Typewriter} from "react-simple-typewriter"
 
-export default function Hero() {
+interface HeroProps {
+  badge?: string;
+  title: string;
+  highlightedWord?: string;
+  typewriterWords?: string[];
+  description: string;
+  showTypewriter?: boolean;
+  typewriterPrefix?: string;
+}
+
+export default function Hero({ 
+  badge = "Nueva colección • Otoño 2025",
+  title,
+  highlightedWord = "Marcas",
+  typewriterWords = ["Estilo","Clase", "Exclusividad"],
+  description,
+  showTypewriter = true,
+  typewriterPrefix = "con"
+}: HeroProps) {
   return (
     <section className="relative isolate overflow-hidden border-b bg-background">
       {/* Fondo creativo con gradientes y blur */}
@@ -19,27 +37,34 @@ export default function Hero() {
           <span
             className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur supports-[backdrop-filter]:bg-background/60 animate-in fade-in-0 slide-in-from-top-2 duration-500"
           >
-            Nueva colección • Otoño 2025
+            {badge}
           </span>
 
           <h1
             className="mt-6 text-balance text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl animate-in fade-in-0 zoom-in-95 duration-700"
           >
-            Distribución y Representación de
-            <span className="mx-2 bg-gradient-to-r from-primary via-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">
-              Marcas 
-            </span>
-            con <Typewriter words={["Estilo","Clase", "Exclusividad"]}
-                            loop={5}
-                            cursor
-                            cursorStyle="_"
-                            typeSpeed={70}
-                            deleteSpeed={50}
-                            delaySpeed={1000} />
+            {title}
+            {highlightedWord && (
+              <span className="mx-2 bg-gradient-to-r from-primary via-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">
+                {highlightedWord}
+              </span>
+            )}
+            {showTypewriter && (
+              <>
+                {typewriterPrefix && <span>{typewriterPrefix} </span>}
+                <Typewriter words={typewriterWords}
+                              loop={5}
+                              cursor
+                              cursorStyle="_"
+                              typeSpeed={70}
+                              deleteSpeed={50}
+                              delaySpeed={1000} />
+              </>
+            )}
           </h1>
 
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-base text-muted-foreground sm:text-lg animate-in fade-in-0 slide-in-from-bottom-2 duration-700 delay-100">
-            Gracias a una amplia y consolidada presencia en los mercados locales de Estados Unidos distribuyendo y representando marcas de diferentes mercados y sectores, ALLIANCE LOGISTICS & DISTRIBUTION está capacitado para ejercer acciones de distribución y representación en toda la región de Estados Unidos , en primeras marcas a nivel mundial de todo tipo de productos y maquinarias especificas.
+            {description}
           </p>
         </div>
 

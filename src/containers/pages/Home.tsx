@@ -10,7 +10,14 @@ export default function Home() {
   return (
     <Layout>
       <Nav />
-      <Hero/>
+      <Hero 
+        badge="Nueva colección • Otoño 2025"
+        title="Distribución y Representación de"
+        highlightedWord="Marcas"
+        typewriterWords={["Estilo","Clase", "Exclusividad"]}
+        description="Gracias a una amplia y consolidada presencia en los mercados locales de Estados Unidos distribuyendo y representando marcas de diferentes mercados y sectores, ALLIANCE LOGISTICS & DISTRIBUTION está capacitado para ejercer acciones de distribución y representación en toda la región de Estados Unidos , en primeras marcas a nivel mundial de todo tipo de productos y maquinarias especificas."
+        showTypewriter={true}
+      />
   <BrandCarousel interval={4000} />
 
       {/* Marcas que confían */}
